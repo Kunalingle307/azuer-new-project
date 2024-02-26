@@ -1,5 +1,5 @@
 <?php
-$con=mysqli_connect("severonline.database.windows.net","severonline","Redbull9","blog_admin_db");
+$con=mysqli_connect("onlineblog.mysql.database.azure.com","onlineblog","@Kunal","blog_admin_db");
 // Check connection
 if (mysqli_connect_errno())
   {
