@@ -101,7 +101,7 @@
 
 	<!-- Chatbot Container -->
 	<div class="chatbot-container" id="chatbotContainer">
-	<iframe src="https://webchat.botframework.com/embed/blogonlineserver1-bot?s=wACVxBDURmg.OACwo91YXBg9mcSZWCmtZm0fadP1f91UWiVmX997wgU" style="height: 502px; max-height: 502px;"></iframe>
+	<iframe src="https://webchat.botframework.com/embed/blogonlineserver1-bot?s=wACVxBDURmg.OACwo91YXBg9mcSZWCmtZm0fadP1f91UWiVmX997wgU" style="height: 400px; max-height: 400px;"></iframe>
 	</div>
 
 	<!--footer-->
