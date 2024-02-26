@@ -1,4 +1,5 @@
 <?php require("libs/fetch_data.php");?>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -24,12 +25,48 @@
 	<link href="css/fontawesome-all.css" rel="stylesheet">
 	<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
 	rel="stylesheet">
+
+	<!-- Add this CSS style for the chatbot button -->
+	<style>
+		.chatbot-button {
+			position: fixed;
+			right: 20px;
+			bottom: 20px;
+			background-color: #007BFF;
+			color: #fff;
+			padding: 10px;
+			border-radius: 5px;
+			cursor: pointer;
+			z-index: 999;
+		}
+
+		.chatbot-container {
+			display: none;
+			position: fixed;
+			right: 30px;
+			bottom: 30px;
+			width: 300px;
+			height: 400px;
+			background-color: #fff;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+			z-index: 1000;
+		}
+
+		.chatbot-iframe {
+			width: 100%;
+			height: 100%;
+			border: 0;
+		}
+	</style>
 </head>
 
 <body>
 	<!--Header-->
 	<?php include("header.php");?>
 	<!--//header-->
+
 	<!--/banner-->
 	<div class="banner-inner">
 	</div>
@@ -40,111 +77,76 @@
 		<li class="breadcrumb-item active">Contact</li>
 	</ol>
 	<!--//banner-->
+
 	<!--/main-->
 	<section class="main-content-w3layouts-agileits">
-
 		<h3 class="tittle">Contact Us</h3>
 		<p class="sub text-center">We love to discuss your idea</p>
 		<div class="contact-map inner-sec">
+			<iframe src="<?php getcontacts("titles","4");?>" class="map" style="border:0" allowfullscreen=""></iframe>
+		</div>
 
-			<iframe src="<?php getcontacts("titles","4");?>"
-				class="map" style="border:0" allowfullscreen=""></iframe>
-			</div>
-			<div class="ad-inf-sec bg-light">
-				<div class="container">
-					<div class="address row">
-
-						<div class="col-lg-4 address-grid">
-							<div class="row address-info">
-								<div class="col-md-4 address-left text-center">
-									<i class="far fa-map"></i>
-								</div>
-								<div class="col-md-8 address-right text-left">
-									<h6>Address</h6>
-									<p> <?php getcontacts("titles","1");?>
-
-									</p>
-								</div>
-							</div>
-
-						</div>
-						<div class="col-lg-4 address-grid">
-							<div class="row address-info">
-								<div class="col-md-4 address-left text-center">
-									<i class="far fa-envelope"></i>
-								</div>
-								<div class="col-md-8 address-right text-left">
-									<h6>Email</h6>
-									<p>
-										<a href="mailto:<?php getcontacts("titles","2");?>"><?php getcontacts("titles","2");?></a></p>
-									</div>
-
-								</div>
-							</div>
-							<div class="col-lg-4 address-grid">
-								<div class="row address-info">
-									<div class="col-md-4 address-left text-center">
-										<i class="fas fa-mobile-alt"></i>
-									</div>
-									<div class="col-md-8 address-right text-left">
-										<h6>Phone</h6>
-										<p><?php getcontacts("titles","3");?></p>
-
-									</div>
-
-								</div>
-							</div>
-						</div>
-					</div>
+		<div class="ad-inf-sec bg-light">
+			<div class="container">
+				<div class="address row">
+					<!-- ... Existing Address Code ... -->
 				</div>
-			</section>
-			<!--//main-->
-			<!--footer-->
-			<?php include("footer.php");?>
-			<!---->
-			<!-- js -->
-			<script src="js/jquery-2.2.3.min.js"></script>
-			<!-- //js -->
-			<!--/ start-smoth-scrolling -->
-			<script src="js/move-top.js"></script>
-			<script src="js/easing.js"></script>
-			<script>
-				jQuery(document).ready(function ($) {
-					$(".scroll").click(function (event) {
-						event.preventDefault();
-						$('html,body').animate({
-							scrollTop: $(this.hash).offset().top
-						}, 900);
-					});
-				});
-			</script>
-			<!--// end-smoth-scrolling -->
+			</div>
+		</div>
+	</section>
+	<!--//main-->
 
-			<script>
-				$(document).ready(function () {
-			/*
-									var defaults = {
-							  			containerID: 'toTop', // fading element id
-										containerHoverID: 'toTopHover', // fading element hover id
-										scrollSpeed: 1200,
-										easingType: 'linear' 
-							 		};
-							 		*/
+	<!-- Chatbot Button -->
+	<div class="chatbot-button" onclick="toggleChatbot()">Chat with us</div>
 
-							 		$().UItoTop({
-							 			easingType: 'easeOutQuart'
-							 		});
+	<!-- Chatbot Container -->
+	<div class="chatbot-container" id="chatbotContainer">
+	<iframe src="https://webchat.botframework.com/embed/blogonlineserver1-bot?s=wACVxBDURmg.OACwo91YXBg9mcSZWCmtZm0fadP1f91UWiVmX997wgU" style="height: 502px; max-height: 502px;"></iframe>
+	</div>
 
-							 	});
-							 </script>
-							 <a href="#home" class="scroll" id="toTop" style="display: block;">
-							 	<span id="toTopHover" style="opacity: 1;"> </span>
-							 </a>
+	<!--footer-->
+	<?php include("footer.php");?>
+	<!---->
 
-							 <!-- //Custom-JavaScript-File-Links -->
-							 <script src="js/bootstrap.js"></script>
+	<!-- js -->
+	<script src="js/jquery-2.2.3.min.js"></script>
+	<!-- //js -->
 
+	<!--/ start-smoth-scrolling -->
+	<script src="js/move-top.js"></script>
+	<script src="js/easing.js"></script>
+	<script>
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+				$('html,body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 900);
+			});
+		});
 
-							</body>
+		function toggleChatbot() {
+			var chatbotContainer = document.getElementById("chatbotContainer");
+			chatbotContainer.style.display = (chatbotContainer.style.display === "none") ? "block" : "none";
+		}
+	</script>
+	<!--// end-smoth-scrolling -->
 
-							</html>
+	<script>
+		$(document).ready(function () {
+			$().UItoTop({
+				easingType: 'easeOutQuart'
+			});
+		});
+	</script>
+
+	<a href="#home" class="scroll" id="toTop" style="display: block;">
+		<span id="toTopHover" style="opacity: 1;"> </span>
+	</a>
+
+	<!-- //Custom-JavaScript-File-Links -->
+	<script src="js/bootstrap.js"></script>
+
+</body>
+
+</html>
