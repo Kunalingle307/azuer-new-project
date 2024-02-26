@@ -1,5 +1,6 @@
+
 <?php
-$con=mysqli_connect("onlineblog.mysql.database.azure.com","onlineblog","@Kunal","blog_admin_db");
+$con=new mysqli("onlineblog.mysql.database.azure.com","onlineblog","@Kunal","blog_admin_db");
 // Check connection
 if (mysqli_connect_errno())
   {
