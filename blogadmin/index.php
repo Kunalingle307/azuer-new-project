@@ -20,3 +20,5 @@
 	}else{
 		include("{$currDir}/main.php");
 	}
+
+?>
